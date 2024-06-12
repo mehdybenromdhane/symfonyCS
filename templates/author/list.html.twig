@@ -1,0 +1,49 @@
+
+{%  if list is empty %}
+
+<h1> no authors !!</h1>
+{% else %}
+
+{% set sum = 0 %}
+
+<table align="center" border="1">
+    <caption>list of authors</caption>
+
+    <tr>
+        <td>Id</td>
+        <td>Image</td>
+        <td>Username</td>
+        <td>Email</td>
+        <td>Number of books</td>
+        <td>Action</td>
+    </tr>
+
+
+    {% for a in list %}
+
+
+<tr>
+  <td>{{a.id}}</td>
+  <td><img  src="{{a.picture}}" width="150px" height="100px"/>  </td>
+  <td>{{a.username | upper}}</td>
+  <td>{{a.email}}</td>
+  <td>{{a.nb_books}}</td>¨
+  <td><a href="{{path('detail' , {'ide': a.id})}}">Details</a></td>
+
+  
+  {% set sum = sum + a.nb_books %}
+</tr>
+
+{% endfor %}
+</table>
+
+
+<h1>Number of authors : {{list|length}}</h1>
+
+<h1> Somme des livres des auteurs = {{sum}}</h1>
+
+
+
+
+
+{% endif %}
