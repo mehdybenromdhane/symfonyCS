@@ -1,0 +1,23 @@
+<table align="center" border="1">
+	<caption>List of Persons</caption>
+	<tr>
+		<td>ID</td>
+		<td>Nom</td>
+
+		<td>Prenom</td>
+
+		<td>Age</td>
+	</tr>
+
+	{% for p in personnes %}
+		<tr>
+
+			<td>{{p.id}}</td>
+			<td>{{p.nom}}</td>
+			<td>{{p.prenom}}</td>
+			<td>{{p.age}}</td>
+
+		</tr>
+
+	{% endfor %}
+</table>
